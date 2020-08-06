@@ -1,0 +1,225 @@
+*,
+:after,
+:before {
+	box-sizing: border-box;
+}
+
+a,
+abbr,
+acronym,
+address,
+article,
+aside,
+audio,
+blockquote,
+body,
+button,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+ul,
+var,
+video {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	font-size: 100%;
+	line-height: 1;
+	border: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+	display: block;
+}
+
+html {
+	font-size: 10px !important;
+	font-family: 'Inter var', sans-serif;
+	font-feature-settings: 'ss01' 1, 'ss03' 1;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+}
+
+abbr,
+abbr[title] {
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	cursor: help;
+}
+
+dfn,
+dfn[title] {
+	font-style: italic;
+}
+
+:focus,
+a,
+a img,
+button:focus,
+input:focus {
+	outline: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: 'Roboto Mono', Monaco, 'Courier New', monospace;
+}
+
+pre {
+	text-wrap: wrap;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	word-wrap: break-word;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+	content: '';
+	content: none;
+}
+
+q {
+	quotes: '\201c''\201d''\2018''\2019';
+}
+
+q:before {
+	content: open-quote;
+}
+
+q:after {
+	content: close-quote;
+}
+
+menu,
+ol,
+ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+table caption,
+table td,
+table th {
+	text-align: left;
+	font-weight: 400;
+}
+
+input[type='search'] {
+	appearance: textfield;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+
+input::-ms-clear,
+input::-ms-reveal {
+	display: none;
+}
+
+textarea {
+	width: auto;
+}
+
+.button,
+button {
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.button,
+.button span,
+button,
+button span {
+	position: relative;
+}
+
+.button span,
+button span {
+	white-space: nowrap;
+	display: block;
+}
+.button::moz-focus-inner,
+button::moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
