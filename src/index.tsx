@@ -4,15 +4,17 @@ import { render } from 'react-dom';
 import 'typeface-abel';
 import 'typeface-im-fell-english';
 
+import GlobalStyles from './GlobalStyles';
 import Bootstrap from './Bootstrap';
 
 document.addEventListener(
 	'DOMContentLoaded',
 	() => {
-		const mountNode: any = document.querySelector('#root');
+		const mountNode = document.querySelector('#root');
 
 		render(
 			<StrictMode>
+				<GlobalStyles />
 				<Bootstrap />
 			</StrictMode>,
 			mountNode
