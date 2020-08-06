@@ -11022,6 +11022,16 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-abel@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-abel/-/typeface-abel-0.0.72.tgz#dd7aa525b3f430ff8fc6acb31610d95ead1c7d46"
+  integrity sha512-9DVbADqgmgEsMBomlXnNJwii6kQtEeF1XODoO70bKwfpfhr0W6raH8V2N5UIRh+IUuglHVStFC4kcoOAvgG5dA==
+
+typeface-im-fell-english@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-im-fell-english/-/typeface-im-fell-english-0.0.72.tgz#4d1b3b0027bb453484c78a7dd72efeb11fdf3ac3"
+  integrity sha512-wYPxhjzH/qmyF9VkjjlG+ubWVYgtiJJlOMc209a/JpRkVJmPgkvBD6Y9bPMpQaA+1hoS6Uc7pA247G0Qyn8aRQ==
+
 typescript@~3.7.2:
   version "3.7.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"

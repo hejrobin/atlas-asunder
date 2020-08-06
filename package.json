@@ -8,6 +8,8 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-scripts": "3.4.1",
+		"typeface-abel": "^0.0.72",
+		"typeface-im-fell-english": "^0.0.72",
 		"typescript": "~3.7.2"
 	},
 	"devDependencies": {
@@ -64,8 +66,8 @@
 		"*.json": [
 			"prettier --write"
 		],
-		"*.{js,jsx}": [
-			"eslint --ext .js,.jsx --fix --cache"
+		"*.{ts,tsx,js,jsx}": [
+			"eslint --ext .ts,.tsx,.js,.jsx --fix --cache"
 		]
 	}
 }

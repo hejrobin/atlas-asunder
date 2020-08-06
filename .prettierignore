@@ -2,6 +2,8 @@ package.json
 package-lock.json
 .commitlintrc.json
 .eslintrc.json
+tsconfig.json
+.eslintcache
 *.yaml
 *.yml
 *.md
