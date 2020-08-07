@@ -1,12 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import Stage from 'views/components/Stage';
-import MainTitle from 'views/components/MainTitle';
 
-export default function Bootstrap(): ReactNode {
-	return (
-		<Stage>
-			<MainTitle title="Atlas Asunder" />
-		</Stage>
-	);
+export default function Bootstrap() {
+	return <Stage>Atlas Asunder</Stage>;
 }

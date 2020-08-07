@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import * as utils from 'utils';
 
-const backdrop: string = utils.assetPath('/images/map.png');
+const backdrop: string = utils.assetPath('/images/backdrop.png');
 
 const GlobalStyles = createGlobalStyle`
 	* {
