@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 
 interface KeyboardBindingOptions {
-	onArrowUp?: () => void;
-	onArrowDown?: () => void;
-	onArrowLeft?: () => void;
-	onArrowRight?: () => void;
-	onSpacebar?: () => void;
-	onBackspace?: () => void;
-	onDelete?: () => void;
-	onEnter?: () => void;
-	onTab?: () => void;
-	onEscape?: () => void;
-	keyBindings?: { [key: string]: () => void };
+	onArrowUp?: (event: any) => void;
+	onArrowDown?: (event: any) => void;
+	onArrowLeft?: (event: any) => void;
+	onArrowRight?: (event: any) => void;
+	onSpacebar?: (event: any) => void;
+	onBackspace?: (event: any) => void;
+	onDelete?: (event: any) => void;
+	onEnter?: (event: any) => void;
+	onTab?: (event: any) => void;
+	onEscape?: (event: any) => void;
+	keyBindings?: { [key: string]: (event: any) => void };
 }
 
 export default function useKeyBindings(bindings: KeyboardBindingOptions) {
@@ -117,7 +117,7 @@ export default function useKeyBindings(bindings: KeyboardBindingOptions) {
 			}
 
 			if (!didEmit && typeof keyHandler === 'function') {
-				keyHandler();
+				keyHandler(event);
 			}
 
 			event.preventDefault();
