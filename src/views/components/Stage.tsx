@@ -7,7 +7,11 @@ interface StageProps {
 	children: ReactNode;
 }
 
-const Wrapper = styled.div<StageProps>`
+interface WrapperProps {
+	guid: string;
+}
+
+const Wrapper = styled.div<WrapperProps>`
 	width: 100vw;
 	height: 100vh;
 	display: grid;

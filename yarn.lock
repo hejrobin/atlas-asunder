@@ -11155,6 +11155,11 @@ typeface-im-fell-english@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-im-fell-english/-/typeface-im-fell-english-0.0.72.tgz#4d1b3b0027bb453484c78a7dd72efeb11fdf3ac3"
   integrity sha512-wYPxhjzH/qmyF9VkjjlG+ubWVYgtiJJlOMc209a/JpRkVJmPgkvBD6Y9bPMpQaA+1hoS6Uc7pA247G0Qyn8aRQ==
 
+typeface-inter@^3.12.0:
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.12.0.tgz#3cd7cdae730daa73cc01e88fdbe27601dc7c4fd7"
+  integrity sha512-3vKBTKCl6S0OJhMKwmyAOodsfTD3Gxsrj5ReavpQmdZ385ecUr3swfNxiBZ4u594mNfojlqL/zUebavV3A1yCA==
+
 typescript@~3.7.2:
   version "3.7.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
