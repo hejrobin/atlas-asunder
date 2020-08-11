@@ -1,8 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+interface StageProps {
+	guid: string;
+	children: ReactNode;
+}
+
+const Wrapper = styled.div<StageProps>`
 	width: 100vw;
 	height: 100vh;
 	display: grid;
@@ -11,10 +16,16 @@ const Wrapper = styled.div`
 	overflow: hidden;
 `;
 
-const Stage: FunctionComponent = ({ children }) => <Wrapper>{children}</Wrapper>;
+const Stage: FunctionComponent<StageProps> = ({ guid, children }) => (
+	<Wrapper guid={guid}>{children}</Wrapper>
+);
 
 Stage.propTypes = {
-	children: PropTypes.node.isRequired,
+	guid: PropTypes.string.isRequired,
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.node),
+		PropTypes.node,
+	]).isRequired,
 };
 
 export default Stage;

@@ -2,7 +2,7 @@
 	"trailingComma": "es5",
 	"singleQuote": true,
 	"useTabs": true,
-	"printWidth": 140,
+	"printWidth": 80,
 	"bracketSpacing": true,
 	"jsxBracketSameLine": true,
 	"arrowParens": "always",

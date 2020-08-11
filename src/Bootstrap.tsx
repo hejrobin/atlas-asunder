@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { StatelessComponent } from 'react';
 
 import Stage from 'views/components/Stage';
 
-export default function Bootstrap() {
-	return <Stage>Atlas Asunder</Stage>;
-}
+const Bootstrap: StatelessComponent = () => (
+	<Stage guid="root">Atlas Asunder</Stage>
+);
+
+export default Bootstrap;
