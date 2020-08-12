@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -20,9 +20,9 @@ const Wrapper = styled.div<WrapperProps>`
 	overflow: hidden;
 `;
 
-const Stage: FunctionComponent<StageProps> = ({ guid, children }) => (
-	<Wrapper guid={guid}>{children}</Wrapper>
-);
+export default function Stage({ guid, children }: StageProps): ReactNode {
+	return <Wrapper guid={guid}>{children}</Wrapper>;
+}
 
 Stage.propTypes = {
 	guid: PropTypes.string.isRequired,
@@ -31,5 +31,3 @@ Stage.propTypes = {
 		PropTypes.node,
 	]).isRequired,
 };
-
-export default Stage;
