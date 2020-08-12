@@ -5,6 +5,7 @@ interface SliderProps {
 	min?: number;
 	max?: number;
 	step?: number;
+	value?: number;
 }
 
 const Component = styled.input<React.HTMLProps<HTMLInputElement>>`
@@ -59,6 +60,15 @@ export default function Slider({
 	min = 0,
 	max = 100,
 	step = 1,
+	value = 0,
 }: SliderProps): JSX.Element {
-	return <Component type="range" min={min} max={max} step={step} />;
+	return (
+		<Component
+			type="range"
+			min={min}
+			max={max}
+			step={step}
+			defaultValue={value}
+		/>
+	);
 }
