@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Slider from 'views/components/Slider';
+
 export default function Bootstrap(): JSX.Element {
-	return <h1>Atlas Asunder</h1>;
+	return <Slider />;
 }
