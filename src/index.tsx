@@ -7,6 +7,8 @@ import 'typeface-inter';
 import GlobalStyles from './GlobalStyles';
 import Bootstrap from './Bootstrap';
 
+import { StateProvider } from 'data/state';
+
 document.addEventListener(
 	'DOMContentLoaded',
 	() => {
@@ -15,7 +17,9 @@ document.addEventListener(
 		render(
 			<StrictMode>
 				<GlobalStyles />
-				<Bootstrap />
+				<StateProvider>
+					<Bootstrap />
+				</StateProvider>
 			</StrictMode>,
 			mountNode
 		);
