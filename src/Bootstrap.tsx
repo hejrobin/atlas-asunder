@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 import { useStateStore } from 'data/state';
 import { ActionType, asAction } from 'data/store';
 
+import Quickfire from 'views/components/Quickfire';
+
 export default function Bootstrap(): JSX.Element {
 	const { state, dispatch } = useStateStore();
 
@@ -14,7 +16,9 @@ export default function Bootstrap(): JSX.Element {
 
 	return (
 		<Fragment>
-			<h1>Inventory visible? - {state.inventoryVisible ? 'Yes' : 'No'}</h1>
+			{state.inventoryVisible ? (
+				<Quickfire timeLimit={3} onEnded={hideInventory} />
+			) : null}
 			<span onClick={showInventory}>Show Inventory</span> -{' '}
 			<span onClick={hideInventory}>Hide Inventory</span>
 		</Fragment>

@@ -2,7 +2,7 @@ import React, { ReactNode, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 
-interface QuickfireProps {
+export interface QuickfireProps {
 	timeLimit: number;
 	onEnded?: () => void;
 }
@@ -44,7 +44,7 @@ const DisappearAnimation = keyframes`
 
 	to {
 		color: rgb(255, 0, 0);
-		transform: scale(3);
+		transform: scale(0);
 		opacity: 0;
 	}
 `;
@@ -60,7 +60,7 @@ const Component = styled.div<ComponentProps>`
 	${({ ended }) =>
 		ended &&
 		css`
-			animation: ${DisappearAnimation} 500ms ease-in-out;
+			animation: ${DisappearAnimation} 400ms ease-in-out;
 			animation-fill-mode: forwards;
 		`}
 
@@ -154,7 +154,10 @@ export default function Quickfire({
 	}, [timeLeft]);
 
 	return (
-		<Component duration={timeLimit} ended={didEnd} onAnimationEnd={emitDidEnd}>
+		<Component
+			duration={timeLimit - 0.5}
+			ended={didEnd}
+			onAnimationEnd={emitDidEnd}>
 			<var>{timeLeft}</var>
 		</Component>
 	);
