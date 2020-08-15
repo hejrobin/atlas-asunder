@@ -1,5 +1,4 @@
 import React from 'react';
-import useSound from 'use-sound';
 import styled from 'styled-components';
 
 import sfxClick from 'audio/sfx/click.mp3';
@@ -83,16 +82,8 @@ export default function Checkbox({
 	name,
 	checked = false,
 }: CheckboxProps): JSX.Element {
-	const [play] = useSound(sfxClick, {
-		sprite: {
-			on: [800, 1000],
-		},
-	});
-
-	const playSfxOn = () => play({ id: 'on' });
-
 	return (
-		<Wrapper onClick={playSfxOn}>
+		<Wrapper>
 			<input type="checkbox" id={name} name={name} defaultChecked={checked} />
 			<label htmlFor={name}>Checkbox</label>
 		</Wrapper>
