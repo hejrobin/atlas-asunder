@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import sfxClick from 'audio/sfx/click.mp3';
+import * as Interactable from 'views/components/Interactable';
 
 export interface CheckboxProps {
 	name: string;
@@ -25,17 +25,13 @@ const Wrapper = styled.div`
 		display: inline-block;
 
 		&::before {
+			${Interactable.Idle()};
 			content: '';
 			display: block;
 			height: 2.5rem;
 			width: 2.5rem;
-			background: rgb(30, 30, 30);
 			cursor: pointer;
 			transform: rotate(45deg);
-			border-radius: 0.2rem;
-			transition: all 150ms ease-in-out;
-			box-shadow: inset 0 0 0 0.1rem rgb(100, 100, 100),
-				inset 0 0 0 0.4rem rgb(10, 10, 10);
 			border: none;
 			position: absolute;
 			left: 0;
@@ -50,7 +46,6 @@ const Wrapper = styled.div`
 			font-size: 1.6rem;
 			text-align: center;
 			line-height: 2.5rem;
-			color: rgb(255, 255, 255);
 			position: absolute;
 			opacity: 0;
 			transform: scale(0);
@@ -62,7 +57,7 @@ const Wrapper = styled.div`
 
 	input:checked + label {
 		&::before {
-			background: rgb(45, 45, 45);
+			${Interactable.Active({ rotated: true })};
 		}
 
 		&::after {
@@ -72,9 +67,7 @@ const Wrapper = styled.div`
 	}
 
 	&:hover label::before {
-		color: rgb(150, 150, 150);
-		box-shadow: inset 0 0 0 0.1rem currentColor,
-			inset 0 0 0 0.4rem rgb(10, 10, 10), rgba(255, 255, 255, 0.4) 0 0 1rem;
+		${Interactable.Hover({ rotated: true })};
 	}
 `;
 

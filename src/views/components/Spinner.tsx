@@ -38,7 +38,7 @@ const Sun = styled.div`
 	height: 100%;
 	border-radius: 1000rem;
 	z-index: 1001;
-	box-shadow: inset rgb(20, 20, 20) 0 0 0 0.2rem;
+	box-shadow: inset rgb(30, 30, 30) 0 0 0 0.2rem;
 `;
 
 const Rays = styled.div`
@@ -50,7 +50,7 @@ const Rays = styled.div`
 	width: 100%;
 	height: 100%;
 	z-index: 1000;
-	box-shadow: inset rgb(20, 20, 20) 0 0 0 0.2rem;
+	box-shadow: inset rgb(30, 30, 30) 0 0 0 0.2rem;
 `;
 
 const BoxAnimation = keyframes`
@@ -72,7 +72,7 @@ const Box = styled.div`
 	z-index: 1001;
 	animation: ${BoxAnimation} 20s linear infinite;
 	animation-direction: reverse;
-	box-shadow: inset rgb(20, 20, 20) 0 0 0 0.2rem;
+	box-shadow: inset rgb(30, 30, 30) 0 0 0 0.2rem;
 `;
 
 const Spinner: FunctionComponent = () => (

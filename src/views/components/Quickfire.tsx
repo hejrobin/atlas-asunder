@@ -20,7 +20,7 @@ const BarAnimation = keyframes`
 	}
 
 	to {
-		background-color: rgb(255, 0, 0);
+		background-color: rgb(255, 62, 72);
 		transform: scaleX(0);
 	}
 `;
@@ -31,7 +31,7 @@ const SquareAnimation = keyframes`
 	}
 
 	to {
-		color: rgb(255, 0, 0);
+		color: rgb(255, 62, 72);
 	}
 `;
 

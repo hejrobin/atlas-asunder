@@ -2,6 +2,7 @@
 :after,
 :before {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 a,
@@ -101,6 +102,7 @@ section {
 
 html {
 	font-size: 10px !important;
+	font-family: Inter, Helvetica, Arial, sans-serif;
 	background: #000;
 	color: #fff;
 }

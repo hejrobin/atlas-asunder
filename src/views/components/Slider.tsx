@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import * as Interactable from 'views/components/Interactable';
+
 export interface SliderProps {
 	min?: number;
 	max?: number;
@@ -19,40 +21,31 @@ const Component = styled.input<React.HTMLProps<HTMLInputElement>>`
 	}
 
 	&::-webkit-slider-runnable-track {
+		${Interactable.Idle()};
 		width: 100%;
 		height: 1rem;
 		cursor: pointer;
-		background: rgb(10, 10, 10);
 		border-radius: 2rem;
-		box-shadow: inset rgb(50, 50, 50) 0 0 0 0.1rem;
-		transition: all 150ms ease-in-out;
-	}
-
-	&:hover::-webkit-slider-runnable-track {
-		box-shadow: inset rgb(100, 100, 100) 0 0 0 0.1rem,
-			rgba(255, 255, 255, 0.15) 0 0 1rem;
 	}
 
 	&::-webkit-slider-thumb {
+		${Interactable.Idle()};
 		margin-top: -0.5rem;
 		height: 2rem;
 		width: 2rem;
-		background: rgb(100, 100, 100);
 		cursor: pointer;
 		appearance: none;
 		transform: rotate(45deg);
 		border-radius: 0.2rem;
-		transition: all 150ms ease-in-out;
-		box-shadow: inset 0 0 0 0.1rem rgb(100, 100, 100),
-			inset 0 0 0 0.5rem rgb(10, 10, 10);
 		border: none;
 	}
 
 	&:hover::-webkit-slider-thumb {
-		color: rgb(150, 150, 150);
-		background: rgb(225, 225, 225);
-		box-shadow: inset 0 0 0 0.1rem currentColor,
-			inset 0 0 0 0.5rem rgb(10, 10, 10), rgba(255, 255, 255, 0.4) 0 0 1rem;
+		${Interactable.Hover(true)};
+	}
+
+	&:active::-webkit-slider-thumb {
+		${Interactable.Active(true)};
 	}
 `;
 
