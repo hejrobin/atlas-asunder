@@ -41,11 +41,11 @@ const Component = styled.input<React.HTMLProps<HTMLInputElement>>`
 	}
 
 	&:hover::-webkit-slider-thumb {
-		${Interactable.Hover(true)};
+		${Interactable.Hover({ rotated: true })};
 	}
 
 	&:active::-webkit-slider-thumb {
-		${Interactable.Active(true)};
+		${Interactable.Active({ rotated: true })};
 	}
 `;
 

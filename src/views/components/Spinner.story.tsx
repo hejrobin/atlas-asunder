@@ -12,3 +12,5 @@ export default {
 const Template: Story = () => <Spinner />;
 
 export const Primary = Template.bind({});
+
+Primary.args = {};

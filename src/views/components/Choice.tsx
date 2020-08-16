@@ -6,17 +6,19 @@ import * as Interactable from 'views/components/Interactable';
 export interface ChoiceProps {
 	active: boolean;
 	backdropUrl?: string;
+	onClick?: () => void;
 	children: ReactNode;
 }
 
 interface WrapperProps {
 	backdropUrl?: string;
+	onClick?: () => void;
 	'data-active': boolean;
 }
 
 const Wrapper = styled.div<WrapperProps>`
-	padding: 10rem 4rem 2rem 4rem;
-	font-size: 1.6rem;
+	padding: 2rem 3rem;
+	font-size: 1.2rem;
 	font-weight: 500;
 	text-shadow: rgba(0, 0, 0, 0.8) 0 0.4rem 1rem;
 	display: inline-block;
@@ -36,10 +38,11 @@ const Wrapper = styled.div<WrapperProps>`
 export default function Choise({
 	children,
 	backdropUrl,
+	onClick,
 	active = false,
 }: ChoiceProps): JSX.Element {
 	return (
-		<Wrapper backdropUrl={backdropUrl} data-active={active}>
+		<Wrapper backdropUrl={backdropUrl} onClick={onClick} data-active={active}>
 			{children}
 		</Wrapper>
 	);
