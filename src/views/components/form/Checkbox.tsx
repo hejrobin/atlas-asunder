@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import * as Interactable from 'views/components/Interactable';
+import * as Interactable from 'views/components/form/Interactable';
 
 export interface CheckboxProps {
 	name: string;

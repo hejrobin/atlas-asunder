@@ -5,7 +5,7 @@ interface InteractableProps {
 	backdropUrl?: string;
 }
 
-export function Idle({ rotated, backdropUrl }: InteractableProps = {}) {
+export function Idle({ backdropUrl }: InteractableProps = {}): string {
 	return css`
 		background-color: rgb(30, 30, 30);
 		border-radius: 0.2rem;
@@ -24,7 +24,10 @@ export function Idle({ rotated, backdropUrl }: InteractableProps = {}) {
 	`;
 }
 
-export function Hover({ rotated, backdropUrl }: InteractableProps = {}) {
+export function Hover({
+	rotated,
+	backdropUrl,
+}: InteractableProps = {}): string {
 	if (backdropUrl) {
 		return css`
 			background: linear-gradient(
@@ -50,7 +53,10 @@ export function Hover({ rotated, backdropUrl }: InteractableProps = {}) {
 	`;
 }
 
-export function Active({ rotated, backdropUrl }: InteractableProps = {}) {
+export function Active({
+	rotated,
+	backdropUrl,
+}: InteractableProps = {}): string {
 	if (backdropUrl) {
 		return css`
 			background: linear-gradient(

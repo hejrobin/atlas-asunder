@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Story, Meta } from '@storybook/react';
 
-import Choice from './Choice';
+import Choice from './form/Choice';
 import Quickfire, { QuickfireProps } from './Quickfire';
 
 const Wrapper = styled.div`
