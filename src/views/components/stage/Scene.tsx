@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-type NoOpPromiseType = Promise<void>;
-
-interface SceneProps {
+export interface SceneProps {
 	children: ReactNode;
 	slug: string;
 
 	canGoBack?: boolean;
-	onPrev?: NoOpPromiseType;
+	onPrev?: () => Promise<boolean>;
 	prevSlug?: string;
 
 	canGoNext?: boolean;
-	onNext?: NoOpPromiseType;
+	onNext?: () => Promise<boolean>;
 	nextSlug?: string;
 }
 

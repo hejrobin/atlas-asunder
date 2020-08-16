@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import * as Interactable from 'views/components/form/Interactable';
 
 export interface ChoiceProps {
-	active: boolean;
+	active?: boolean;
 	backdropUrl?: string;
 	onClick?: () => void;
 	children: ReactNode;

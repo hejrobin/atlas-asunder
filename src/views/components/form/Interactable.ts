@@ -1,11 +1,13 @@
-import { css } from 'styled-components';
+import { FlattenSimpleInterpolation, css } from 'styled-components';
 
 interface InteractableProps {
 	rotated?: boolean;
 	backdropUrl?: string;
 }
 
-export function Idle({ backdropUrl }: InteractableProps = {}): string {
+export function Idle({
+	backdropUrl,
+}: InteractableProps = {}): FlattenSimpleInterpolation {
 	return css`
 		background-color: rgb(30, 30, 30);
 		border-radius: 0.2rem;
@@ -27,7 +29,7 @@ export function Idle({ backdropUrl }: InteractableProps = {}): string {
 export function Hover({
 	rotated,
 	backdropUrl,
-}: InteractableProps = {}): string {
+}: InteractableProps = {}): FlattenSimpleInterpolation {
 	if (backdropUrl) {
 		return css`
 			background: linear-gradient(
@@ -56,7 +58,7 @@ export function Hover({
 export function Active({
 	rotated,
 	backdropUrl,
-}: InteractableProps = {}): string {
+}: InteractableProps = {}): FlattenSimpleInterpolation {
 	if (backdropUrl) {
 		return css`
 			background: linear-gradient(

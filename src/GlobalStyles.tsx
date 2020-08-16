@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 import * as utils from 'utils';
 
 const backdrop: string = utils.assetPath('/images/backdrop.png');
-const map: string = utils.assetPath('/images/atlas-ns.svg');
 
 const GlobalStyles = createGlobalStyle`
 	* {
@@ -21,11 +20,8 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	body {
-		padding: 5rem;
-		background-image: url('${map}');
-		background-size: cover;
-		background-position:  top center;
 		font-family: 'Inter', helvetica, arial, sans-serif;
+		overflow: hidden;
 	}
 `;
 

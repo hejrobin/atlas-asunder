@@ -1,40 +1,90 @@
-import React, { Children, createContext, useState, useCallback } from 'react';
+import React, {
+	ReactElement,
+	Children,
+	createContext,
+	useState,
+	useCallback,
+} from 'react';
+
+import { SceneProps } from 'views/components/stage/Scene';
 
 interface StageProps {
-	children: ReactNode;
+	children?: ReactElement<SceneProps>[] | ReactElement<SceneProps>;
 }
 
-export const StageContext = createContext({});
+interface StageContextType {
+	goTo?: (slug?: string) => void;
+	prev?: () => void;
+	next?: () => void;
+	busy?: boolean;
+}
+
+const InitialStageContext = {
+	goTo: null,
+	prev: null,
+	back: null,
+	busy: false,
+};
+
+export const StageContext = createContext<StageContextType>(
+	InitialStageContext
+);
 
 export default function Stage({ children }: StageProps): JSX.Element {
-	children = Children.toArray(children).filter((n) => n);
-
-	const numChildren: number = children.length;
-
 	const [busy, setBusy] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
-	const currentStep = children.find((child, n) => n === currentIndex);
+	const filteredChildren = Children.toArray(children);
+	const numChildren: number = filteredChildren.length;
+
+	const currentScene =
+		filteredChildren.length > 0
+			? filteredChildren.find((child, n) => n === currentIndex)
+			: null;
+
+	let childProps: SceneProps = {
+		children: null,
+		slug: '',
+		canGoBack: true,
+		onPrev: () => Promise.resolve(true),
+		prevSlug: undefined,
+		canGoNext: true,
+		onNext: () => Promise.resolve(true),
+		nextSlug: undefined,
+	};
+
+	if (
+		currentScene &&
+		currentScene?.hasOwnProperty('props') &&
+		currentScene?.hasOwnProperty('slug')
+	) {
+		// @ts-ignore-start
+		childProps = currentScene.props;
+		// @ts-ignore-end
+	}
 
 	const {
 		canGoBack,
 		onPrev,
 		prevSlug,
-
 		canGoNext,
 		onNext,
 		nextSlug,
-	} = currentStep ? currentStep.props : {};
+	} = childProps;
 
 	const goTo = useCallback(
 		(slug) => {
-			const index = children.findIndex((child) => child.props?.slug === slug);
+			const nextIndex = filteredChildren.findIndex(
+				// @ts-ignore-start
+				(child) => child.props?.slug === slug
+				// @ts-ignore-end
+			);
 
-			if (index >= 0) {
-				setCurrentIndex(index);
+			if (nextIndex >= 0) {
+				setCurrentIndex(nextIndex);
 			}
 		},
-		[children]
+		[filteredChildren]
 	);
 
 	const prev = useCallback(async () => {
@@ -81,11 +131,11 @@ export default function Stage({ children }: StageProps): JSX.Element {
 		}
 	}, [numChildren, currentIndex, setBusy, canGoNext, onNext, nextSlug, goTo]);
 
-	if (!currentStep) return null;
+	const contextValue: StageContextType = { next, prev, goTo, busy };
 
 	return (
-		<StageContext.Provider value={{ next, prev, goTo, busy }}>
-			{currentStep}
+		<StageContext.Provider value={contextValue}>
+			{currentScene}
 		</StageContext.Provider>
 	);
 }

@@ -23,7 +23,11 @@ const Template: Story<QuickfireProps> = (args) => {
 
 	return (
 		<Wrapper>
-			{!isVisible && <Choice onClick={showQuickfire}>Show Quickfire</Choice>}
+			{!isVisible && (
+				<Choice onClick={showQuickfire}>
+					<span>Show Quickfire</span>
+				</Choice>
+			)}
 			{isVisible && <Quickfire {...args} onEnded={hideQuickfire} />}
 		</Wrapper>
 	);
