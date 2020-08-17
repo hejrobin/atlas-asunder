@@ -68,9 +68,7 @@ export default function Stage({ children }: StageProps): JSX.Element {
 	const goTo = useCallback(
 		(slug) => {
 			const nextIndex = filteredChildren.findIndex(
-				// @ts-ignore-start
-				(child) => child.props?.slug === slug
-				// @ts-ignore-end
+				(child) => (child as ReactElement).props?.slug === slug
 			);
 
 			if (nextIndex >= 0) {

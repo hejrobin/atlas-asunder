@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { assetPath } from 'utils';
+
+import { StageContext } from 'views/components/stage/Stage';
 
 const Wrapper = styled.div`
 	width: 100vw;
@@ -116,8 +118,10 @@ const Continue = styled.h1`
 `;
 
 export default function Main(): JSX.Element {
+	const { next } = useContext(StageContext);
+
 	return (
-		<Wrapper>
+		<Wrapper onClick={next}>
 			<Backdrop />
 			<MapTexture />
 			<Title>Atlas Asunder</Title>
