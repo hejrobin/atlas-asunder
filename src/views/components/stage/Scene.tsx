@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export interface SceneProps {
 	children: ReactNode;
@@ -14,12 +14,20 @@ export interface SceneProps {
 	nextSlug?: string;
 }
 
-interface WrapperProps {
-	slug: string;
-}
+const AppearAnimation = keyframes`
+	from {
+		opacity: 0;
+	}
 
-const Wrapper = styled.div<WrapperProps>``;
+	to {
+		opacity: 1;
+	}
+`;
 
-export default function Scene({ children, slug }: SceneProps): JSX.Element {
-	return <Wrapper slug={slug}>{children}</Wrapper>;
+const Wrapper = styled.div`
+	animation: ${AppearAnimation} 500ms ease;
+`;
+
+export default function Scene({ children }: SceneProps): JSX.Element {
+	return <Wrapper>{children}</Wrapper>;
 }

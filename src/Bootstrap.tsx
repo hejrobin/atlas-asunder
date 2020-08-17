@@ -15,6 +15,9 @@ export default function Bootstrap(): JSX.Element {
 			<Scene slug="prologue">
 				<PrologueScene />
 			</Scene>
+			<Scene slug="p1">
+				<span>:D</span>
+			</Scene>
 		</Stage>
 	);
 }
