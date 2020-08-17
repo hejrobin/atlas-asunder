@@ -5,13 +5,13 @@ import { StageContext } from 'views/components/stage/Stage';
 
 import Title from 'views/components/Title';
 
-const HideAnimation = keyframes`
-	from {
-		opacity: 1;
+const ActAnimation = keyframes`
+	0%, 100% {
+		opacity: 0;
 	}
 
-	to {
-		opacity: 0;
+	25%, 75% {
+		opacity: 1;
 	}
 `;
 
@@ -23,16 +23,25 @@ const Wrapper = styled.div`
 	justify-content: center;
 	overflow: hidden;
 	position: relative;
-	animation: ${HideAnimation} 1s ease;
-	animation-delay: 2s;
+	opacity: 0;
+	animation: ${ActAnimation} 6s ease;
+	animation-delay: 500ms;
 `;
 
-export default function Prologue(): JSX.Element {
+interface ChapterProps {
+	prefix?: string;
+	heading: string;
+}
+
+export default function Chapter({
+	prefix,
+	heading,
+}: ChapterProps): JSX.Element {
 	const { next } = useContext(StageContext);
 
 	return (
 		<Wrapper onAnimationEnd={next}>
-			<Title prefix="Prologue" heading="Torn asunder" />
+			<Title prefix={prefix} heading={heading} />
 		</Wrapper>
 	);
 }

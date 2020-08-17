@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { assetPath } from 'utils';
@@ -120,8 +120,20 @@ const Continue = styled.h1`
 export default function Main(): JSX.Element {
 	const { next } = useContext(StageContext);
 
+	const [canContinue, setCanContinue] = useState(false);
+
+	setTimeout(() => setCanContinue(true), 10 * 1000);
+
+	const handleClick = () => {
+		if (!canContinue) return;
+
+		if (next instanceof Function) {
+			next();
+		}
+	};
+
 	return (
-		<Wrapper onClick={next}>
+		<Wrapper onClick={handleClick}>
 			<Backdrop />
 			<MapTexture />
 			<Title>Atlas Asunder</Title>

@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { Fragment, ReactNode } from 'react';
 
 export interface SceneProps {
 	children: ReactNode;
@@ -14,20 +13,6 @@ export interface SceneProps {
 	nextSlug?: string;
 }
 
-const AppearAnimation = keyframes`
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-`;
-
-const Wrapper = styled.div`
-	animation: ${AppearAnimation} 500ms ease;
-`;
-
 export default function Scene({ children }: SceneProps): JSX.Element {
-	return <Wrapper>{children}</Wrapper>;
+	return <Fragment>{children}</Fragment>;
 }

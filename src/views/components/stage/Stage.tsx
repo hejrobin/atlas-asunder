@@ -2,9 +2,13 @@ import React, {
 	ReactElement,
 	Children,
 	createContext,
-	useState,
 	useCallback,
+	useState,
 } from 'react';
+
+import styled, { css, keyframes } from 'styled-components';
+
+import { delay } from 'utils';
 
 import { SceneProps } from 'views/components/stage/Scene';
 
@@ -30,8 +34,43 @@ export const StageContext = createContext<StageContextType>(
 	InitialStageContext
 );
 
+const SceneTransitionIn = keyframes`
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+`;
+
+const SceneTransitionOut = keyframes`
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+`;
+
+interface SceneTransitionProps {
+	transitionState: string;
+	onAnimationEnd: () => void;
+}
+
+const SceneTransition = styled.div<SceneTransitionProps>`
+	${({ transitionState }) =>
+		transitionState === 'in' &&
+		css`
+			animation: ${SceneTransitionIn} 1s ease;
+		`};
+
+	${({ transitionState }) =>
+		transitionState === 'out' &&
+		css`
+			animation: ${SceneTransitionOut} 1s ease;
+		`};
+`;
+
 export default function Stage({ children }: StageProps): JSX.Element {
 	const [busy, setBusy] = useState(false);
+	const [transitionState, setTransitionState] = useState('in');
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const filteredChildren = Children.toArray(children);
@@ -66,16 +105,21 @@ export default function Stage({ children }: StageProps): JSX.Element {
 	} = childProps;
 
 	const goTo = useCallback(
-		(slug) => {
+		async (slug) => {
 			const nextIndex = filteredChildren.findIndex(
 				(child) => (child as ReactElement).props?.slug === slug
 			);
+
+			if (transitionState === 'idle') {
+				setTransitionState('out');
+				await delay(500);
+			}
 
 			if (nextIndex >= 0) {
 				setCurrentIndex(nextIndex);
 			}
 		},
-		[filteredChildren]
+		[filteredChildren, transitionState]
 	);
 
 	const prev = useCallback(async () => {
@@ -93,12 +137,25 @@ export default function Stage({ children }: StageProps): JSX.Element {
 			return;
 		}
 
+		if (transitionState === 'idle') {
+			setTransitionState('out');
+			await delay(500);
+		}
+
 		if (prevSlug) {
 			goTo(prevSlug);
 		} else if (currentIndex > 0) {
 			setCurrentIndex(currentIndex - 1);
 		}
-	}, [currentIndex, setBusy, canGoBack, onPrev, prevSlug, goTo]);
+	}, [
+		currentIndex,
+		setBusy,
+		canGoBack,
+		onPrev,
+		prevSlug,
+		goTo,
+		transitionState,
+	]);
 
 	const next = useCallback(async () => {
 		let canContinue = canGoNext;
@@ -115,18 +172,42 @@ export default function Stage({ children }: StageProps): JSX.Element {
 			return;
 		}
 
+		if (transitionState === 'idle') {
+			setTransitionState('out');
+			await delay(500);
+		}
+
 		if (nextSlug) {
 			goTo(nextSlug);
 		} else if (currentIndex + 1 !== numChildren) {
 			setCurrentIndex(currentIndex + 1);
 		}
-	}, [numChildren, currentIndex, setBusy, canGoNext, onNext, nextSlug, goTo]);
+	}, [
+		numChildren,
+		currentIndex,
+		setBusy,
+		canGoNext,
+		onNext,
+		nextSlug,
+		goTo,
+		transitionState,
+	]);
 
 	const contextValue: StageContextType = { next, prev, goTo, busy };
 
+	const handleTransitionChange = useCallback(() => {
+		if (transitionState === 'in') {
+			setTransitionState('idle');
+		}
+	}, [transitionState]);
+
 	return (
 		<StageContext.Provider value={contextValue}>
-			{currentScene}
+			<SceneTransition
+				transitionState={transitionState}
+				onAnimationEnd={handleTransitionChange}>
+				{currentScene}
+			</SceneTransition>
 		</StageContext.Provider>
 	);
 }

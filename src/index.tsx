@@ -5,7 +5,7 @@ import 'typeface-abel';
 import 'typeface-inter';
 
 import GlobalStyles from './GlobalStyles';
-import Bootstrap from './Bootstrap';
+import Game from './Game';
 
 import { StateProvider } from 'data/state';
 
@@ -18,7 +18,7 @@ document.addEventListener(
 			<StrictMode>
 				<GlobalStyles />
 				<StateProvider>
-					<Bootstrap />
+					<Game />
 				</StateProvider>
 			</StrictMode>,
 			mountNode

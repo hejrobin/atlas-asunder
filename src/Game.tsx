@@ -2,20 +2,18 @@ import React from 'react';
 
 import Stage from 'views/components/stage/Stage';
 import Scene from 'views/components/stage/Scene';
+import Act from 'views/components/stage/Act';
 
 import MainScene from 'views/scenes/Main';
-import PrologueScene from 'views/scenes/Prologue';
 
-export default function Bootstrap(): JSX.Element {
+export default function Game(): JSX.Element {
 	return (
 		<Stage>
 			<Scene slug="main">
 				<MainScene />
 			</Scene>
-			<Scene slug="prologue">
-				<PrologueScene />
-			</Scene>
-			<Scene slug="p1">
+			<Act prefix="Prologue" heading="Tjena Macarena" />
+			<Scene slug="a1-s1">
 				<span>:D</span>
 			</Scene>
 		</Stage>
