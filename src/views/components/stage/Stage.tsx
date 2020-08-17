@@ -20,9 +20,9 @@ interface StageContextType {
 }
 
 const InitialStageContext = {
-	goTo: null,
-	prev: null,
-	back: null,
+	goTo: undefined,
+	prev: undefined,
+	back: undefined,
 	busy: false,
 };
 
@@ -37,10 +37,9 @@ export default function Stage({ children }: StageProps): JSX.Element {
 	const filteredChildren = Children.toArray(children);
 	const numChildren: number = filteredChildren.length;
 
-	const currentScene =
-		filteredChildren.length > 0
-			? filteredChildren.find((child, n) => n === currentIndex)
-			: null;
+	const currentScene = (filteredChildren.length > 0
+		? filteredChildren.find((child, n) => n === currentIndex)
+		: null) as ReactElement;
 
 	let childProps: SceneProps = {
 		children: null,
@@ -53,14 +52,8 @@ export default function Stage({ children }: StageProps): JSX.Element {
 		nextSlug: undefined,
 	};
 
-	if (
-		currentScene &&
-		currentScene?.hasOwnProperty('props') &&
-		currentScene?.hasOwnProperty('slug')
-	) {
-		// @ts-ignore-start
+	if (currentScene && currentScene?.hasOwnProperty('props')) {
 		childProps = currentScene.props;
-		// @ts-ignore-end
 	}
 
 	const {
