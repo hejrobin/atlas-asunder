@@ -112,7 +112,7 @@ export default function Stage({ children }: StageProps): JSX.Element {
 
 			if (transitionState === 'idle') {
 				setTransitionState('out');
-				await delay(500);
+				await delay(1000);
 			}
 
 			if (nextIndex >= 0) {
@@ -139,7 +139,7 @@ export default function Stage({ children }: StageProps): JSX.Element {
 
 		if (transitionState === 'idle') {
 			setTransitionState('out');
-			await delay(500);
+			await delay(1000);
 		}
 
 		if (prevSlug) {
@@ -174,7 +174,7 @@ export default function Stage({ children }: StageProps): JSX.Element {
 
 		if (transitionState === 'idle') {
 			setTransitionState('out');
-			await delay(500);
+			await delay(1000);
 		}
 
 		if (nextSlug) {
