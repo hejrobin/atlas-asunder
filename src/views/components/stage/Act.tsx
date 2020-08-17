@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 	overflow: hidden;
 	position: relative;
 	opacity: 0;
-	animation: ${ActAnimation} 6s ease;
+	animation: ${ActAnimation} 4s ease;
 	animation-delay: 500ms;
 `;
 

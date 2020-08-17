@@ -1,8 +1,9 @@
-import React, { Fragment, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
 export interface SceneProps {
-	children: ReactNode;
 	slug: string;
+	component: ReactElement;
 
 	canGoBack?: boolean;
 	onPrev?: () => Promise<boolean>;
@@ -13,6 +14,15 @@ export interface SceneProps {
 	nextSlug?: string;
 }
 
-export default function Scene({ children }: SceneProps): JSX.Element {
-	return <Fragment>{children}</Fragment>;
+const Wrapper = styled.div`
+	display: grid;
+	grid-auto-flow: row;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	gap: 2rem;
+`;
+
+export default function Scene({ slug, component }: SceneProps): JSX.Element {
+	return <Wrapper>{component}</Wrapper>;
 }

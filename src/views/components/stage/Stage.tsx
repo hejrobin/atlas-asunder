@@ -1,5 +1,6 @@
 import React, {
 	ReactElement,
+	Fragment,
 	Children,
 	createContext,
 	useCallback,
@@ -55,6 +56,9 @@ interface SceneTransitionProps {
 }
 
 const SceneTransition = styled.div<SceneTransitionProps>`
+	height: 100vh;
+	width: 100vw;
+
 	${({ transitionState }) =>
 		transitionState === 'in' &&
 		css`
@@ -81,8 +85,8 @@ export default function Stage({ children }: StageProps): JSX.Element {
 		: null) as ReactElement;
 
 	let childProps: SceneProps = {
-		children: null,
 		slug: '',
+		component: <Fragment />,
 		canGoBack: true,
 		onPrev: () => Promise.resolve(true),
 		prevSlug: undefined,
