@@ -5,7 +5,9 @@ import Scene from 'views/components/stage/Scene';
 import Act from 'views/components/stage/Act';
 
 import Main from 'views/scenes/Main';
+
 import A1S1 from 'views/scenes/A1S1';
+import A1S2 from 'views/scenes/A1S2';
 
 export default function Game(): JSX.Element {
 	return (
@@ -14,6 +16,7 @@ export default function Game(): JSX.Element {
 
 			<Act prefix="Prologue" heading="The Night Before..." />
 			<Scene slug="a1-s1" component={<A1S1 />} />
+			<Scene slug="a1-s2" component={<A1S2 />} />
 		</Stage>
 	);
 }

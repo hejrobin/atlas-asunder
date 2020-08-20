@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { assetPath } from 'utils';
-
-import { StageContext } from 'views/components/stage/Stage';
+import useStageContext from 'utils/useStageContext';
 
 const Wrapper = styled.div`
 	width: 100vw;
@@ -118,7 +117,7 @@ const Continue = styled.h1`
 `;
 
 export default function Main(): JSX.Element {
-	const { next } = useContext(StageContext);
+	const { next } = useStageContext();
 
 	const [canContinue, setCanContinue] = useState(false);
 

@@ -1,13 +1,13 @@
 import { StateContext } from 'data/state';
 
 export enum ActionType {
-	SET_INVENTORY_VISIBLE = 'inventoryVisible',
+	MAIN_MENU_VISIBLE = 'mainMenuVisible',
+	LATEST_CHECKPOINT = 'latestCheckpoint',
 }
 
-export type Action = {
-	type: ActionType.SET_INVENTORY_VISIBLE;
-	payload: StateContext;
-};
+export type Action =
+	| { type: ActionType.MAIN_MENU_VISIBLE; payload: StateContext }
+	| { type: ActionType.LATEST_CHECKPOINT; payload: StateContext };
 
 export const reducer = (state: StateContext, action: Action) => {
 	const mutateState = (
@@ -18,8 +18,11 @@ export const reducer = (state: StateContext, action: Action) => {
 		...nextState,
 	});
 
-	switch (action.type) {
-		case ActionType.SET_INVENTORY_VISIBLE:
+	const actionType = action.type;
+
+	switch (actionType) {
+		case ActionType.MAIN_MENU_VISIBLE:
+		case ActionType.LATEST_CHECKPOINT:
 			return mutateState(state, action.payload);
 		default:
 			throw new Error(`Invalid action '${action.type}'.`);

@@ -1,10 +1,16 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import React, { createContext, useReducer, ReactNode } from 'react';
 
 import { reducer, Action, ActionType } from 'data/store';
 
 export interface StateContext {
-	inventoryVisible: boolean;
+	mainMenuVisible?: boolean;
+	latestCheckpoint?: string;
 }
+
+const initialState: StateContext = {
+	mainMenuVisible: false,
+	latestCheckpoint: 'main',
+};
 
 export interface Store {
 	state: StateContext;
@@ -12,15 +18,9 @@ export interface Store {
 	dispatchAction?: (type: ActionType, payload: any) => void;
 }
 
-const initialState: StateContext = {
-	inventoryVisible: false,
-};
-
-const StoreContext = createContext<Store>({
+export const StoreContext = createContext<Store>({
 	state: initialState,
 });
-
-export const useStateContext = () => useContext(StoreContext);
 
 interface StateProviderProps {
 	children: ReactNode;
