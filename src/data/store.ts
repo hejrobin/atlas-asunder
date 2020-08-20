@@ -10,7 +10,10 @@ export type Action = {
 };
 
 export const reducer = (state: StateContext, action: Action) => {
-	const mutateState = (state, nextState) => ({
+	const mutateState = (
+		state: StateContext,
+		nextState: StateContext
+	): StateContext => ({
 		...state,
 		...nextState,
 	});
@@ -22,10 +25,3 @@ export const reducer = (state: StateContext, action: Action) => {
 			throw new Error(`Invalid action '${action.type}'.`);
 	}
 };
-
-export const asAction = (type: ActionType, payload: any) => ({
-	type,
-	payload: {
-		[type]: payload,
-	},
-});

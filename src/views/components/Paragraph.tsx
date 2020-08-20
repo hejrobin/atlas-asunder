@@ -21,35 +21,35 @@ const Wrapper = styled.div`
 	line-height: 1.5;
 
 	&:nth-child(2) {
-		animation-delay: 2s;
+		animation-delay: 1s;
 	}
 
 	&:nth-child(3) {
-		animation-delay: 4s;
+		animation-delay: 2s;
 	}
 
 	&:nth-child(4) {
-		animation-delay: 6s;
+		animation-delay: 3s;
 	}
 
 	&:nth-child(5) {
-		animation-delay: 8s;
+		animation-delay: 4s;
 	}
 
 	&:nth-child(6) {
-		animation-delay: 10s;
+		animation-delay: 5s;
 	}
 
 	&:nth-child(7) {
-		animation-delay: 12s;
+		animation-delay: 7s;
 	}
 
 	&:nth-child(8) {
-		animation-delay: 14s;
+		animation-delay: 8s;
 	}
 
 	&:nth-child(9) {
-		animation-delay: 16s;
+		animation-delay: 9s;
 	}
 `;
 

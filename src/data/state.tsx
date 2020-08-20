@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 
-import { reducer, Action } from 'data/store';
+import { reducer, Action, ActionType } from 'data/store';
 
 export interface StateContext {
 	inventoryVisible: boolean;
@@ -9,17 +9,18 @@ export interface StateContext {
 export interface Store {
 	state: StateContext;
 	dispatch?: React.Dispatch<Action>;
+	dispatchAction?: (type: ActionType, payload: any) => void;
 }
 
 const initialState: StateContext = {
 	inventoryVisible: false,
 };
 
-const AppContext = createContext<Store>({
+const StoreContext = createContext<Store>({
 	state: initialState,
 });
 
-export const useStateStore = () => useContext(AppContext);
+export const useStateContext = () => useContext(StoreContext);
 
 interface StateProviderProps {
 	children: ReactNode;
@@ -28,9 +29,17 @@ interface StateProviderProps {
 export const StateProvider = ({ children }: StateProviderProps) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
+	const dispatchAction = (type: ActionType, payload: any) =>
+		dispatch({
+			type,
+			payload: {
+				[type]: payload,
+			},
+		});
+
+	const store: Store = { state, dispatch, dispatchAction };
+
 	return (
-		<AppContext.Provider value={{ state, dispatch }}>
-			{children}
-		</AppContext.Provider>
+		<StoreContext.Provider value={store}>{children}</StoreContext.Provider>
 	);
 };
