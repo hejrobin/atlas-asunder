@@ -1,6 +1,6 @@
 {
   "name": "atlas-asunder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Atlas Asunder is a text-based mystery game",
   "license": "MIT",
   "private": true,
@@ -45,7 +45,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "standard-version": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
