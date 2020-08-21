@@ -10,7 +10,7 @@ import A1S1 from 'views/scenes/A1S1';
 
 export default function Manuscript(): JSX.Element {
 	return (
-		<Stage initialSlug="a1s1">
+		<Stage initialSlug="main">
 			<Scene slug="main" component={<Main />} />
 
 			<Act prefix="Prologue" heading="The Night Before..." />

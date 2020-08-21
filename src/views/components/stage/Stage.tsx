@@ -63,13 +63,13 @@ const SceneTransition = styled.div<SceneTransitionProps>`
 	${({ transitionState }) =>
 		transitionState === 'in' &&
 		css`
-			animation: ${SceneTransitionIn} 1s ease;
+			animation: ${SceneTransitionIn} 1.5s ease;
 		`};
 
 	${({ transitionState }) =>
 		transitionState === 'out' &&
 		css`
-			animation: ${SceneTransitionOut} 1s ease;
+			animation: ${SceneTransitionOut} 1.5s ease;
 		`};
 `;
 
@@ -126,7 +126,7 @@ export default function Stage({
 
 			if (transitionState === 'idle') {
 				setTransitionState('out');
-				await delay(1000);
+				await delay(1600);
 			}
 
 			if (nextIndex >= 0) {
