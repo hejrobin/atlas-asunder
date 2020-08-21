@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/hejrobin/atlas-asunder/compare/v0.2.0...v0.2.1) (2020-08-21)
+
+
+### Bug Fixes
+
+* dependencies in yarn.lock ([25e1ca9](https://github.com/hejrobin/atlas-asunder/commit/25e1ca9007d16508e9f24afd94c19ba184970113))
+* increase scene transition speed ([97f3e1f](https://github.com/hejrobin/atlas-asunder/commit/97f3e1f17d591b2ede2482f646a841297a3a8570))
+
 ## 0.2.0 (2020-08-21)
 
 
