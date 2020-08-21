@@ -4,10 +4,13 @@ import { render } from 'react-dom';
 import 'typeface-abel';
 import 'typeface-inter';
 
-import GlobalStyles from './GlobalStyles';
-import Game from './Game';
+import GlobalStyles from 'config/GlobalStyles';
+import KeyBindings from 'config/KeyBindings';
 
-import { StateProvider } from 'data/state';
+import AppStateProvider from 'data/State';
+import DecisionProvider from 'data/Decisions';
+
+import Manuscript from 'views/compositions/Manuscript';
 
 document.addEventListener(
 	'DOMContentLoaded',
@@ -17,9 +20,12 @@ document.addEventListener(
 		render(
 			<StrictMode>
 				<GlobalStyles />
-				<StateProvider>
-					<Game />
-				</StateProvider>
+				<KeyBindings />
+				<AppStateProvider>
+					<DecisionProvider>
+						<Manuscript />
+					</DecisionProvider>
+				</AppStateProvider>
 			</StrictMode>,
 			mountNode
 		);

@@ -9,7 +9,7 @@ import Main from 'views/scenes/Main';
 import A1S1 from 'views/scenes/A1S1';
 import A1S2 from 'views/scenes/A1S2';
 
-export default function Game(): JSX.Element {
+export default function Manuscript(): JSX.Element {
 	return (
 		<Stage>
 			<Scene slug="main" component={<Main />} />
