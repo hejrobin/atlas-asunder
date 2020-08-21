@@ -1,6 +1,7 @@
 import React, {
 	useMemo,
 	useReducer,
+	useCallback,
 	createContext,
 	useContext,
 	ReactNode,
@@ -64,13 +65,16 @@ const reducer = (state: AppState, action: Action) => {
 const AppStateProvider = ({ children }: StateProviderProps) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const emit = (type: AppAction, payload: any) =>
-		dispatch({
-			type,
-			payload: {
-				[type]: payload,
-			},
-		});
+	const emit = useCallback(
+		(type: AppAction, payload: any) =>
+			dispatch({
+				type,
+				payload: {
+					[type]: payload,
+				},
+			}),
+		[]
+	);
 
 	const store: AppStateDispatch = useMemo(
 		() => ({

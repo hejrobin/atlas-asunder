@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 
 import 'typeface-abel';
 import 'typeface-inter';
+import 'typeface-im-fell-english';
+import 'typeface-im-fell-english-sc';
 
 import GlobalStyles from 'config/GlobalStyles';
 import KeyBindings from 'config/KeyBindings';

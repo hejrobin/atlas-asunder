@@ -4,9 +4,11 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
 	background: rgba(100, 100, 100, 0.1);
 	padding: 1rem 2rem;
-	font-family: Abel, helvetica, sans-serif;
-	font-size: 1.4rem;
+	padding-top: 1.2rem;
+	font-family: 'IM Fell English SC', helvetica, sans-serif;
+	font-size: 1.2rem;
 	text-transform: uppercase;
+	letter-spacing: 0.2rem;
 	display: inline-block;
 	border-radius: 0.2rem;
 	color: rgba(255, 255, 255, 0.7);

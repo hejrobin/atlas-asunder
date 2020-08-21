@@ -1,6 +1,7 @@
 import React, {
 	useMemo,
 	useReducer,
+	useCallback,
 	createContext,
 	useContext,
 	ReactNode,
@@ -67,13 +68,16 @@ const reducer = (state: DecisionState, action: Action) => {
 const DecisionStateProvider = ({ children }: StateProviderProps) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const emit = (type: DecisionAction, payload: any) =>
-		dispatch({
-			type,
-			payload: {
-				[type]: payload,
-			},
-		});
+	const emit = useCallback(
+		(type: DecisionAction, payload: any) =>
+			dispatch({
+				type,
+				payload: {
+					[type]: payload,
+				},
+			}),
+		[]
+	);
 
 	const store: DecisionStateDispatch = useMemo(
 		() => ({

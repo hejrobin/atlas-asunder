@@ -17,7 +17,9 @@ const Wrapper = styled.div`
 	opacity: 0;
 	animation: ${AppearAnimation} 1s ease;
 	animation-fill-mode: forwards;
-	font-size: 1.6rem;
+	font-family: 'IM Fell English', georgia, serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 1.8rem;
 	line-height: 1.5;
 
 	&:nth-child(2) {
@@ -41,22 +43,26 @@ const Wrapper = styled.div`
 	}
 
 	&:nth-child(7) {
-		animation-delay: 7s;
+		animation-delay: 6s;
 	}
 
 	&:nth-child(8) {
-		animation-delay: 8s;
+		animation-delay: 7s;
 	}
 
 	&:nth-child(9) {
-		animation-delay: 9s;
+		animation-delay: 8s;
 	}
 `;
 
 interface ParagraphProps {
 	children: ReactNode;
+	className?: string;
 }
 
-export default function Paragraph({ children }: ParagraphProps): JSX.Element {
-	return <Wrapper>{children}</Wrapper>;
+export default function Paragraph({
+	children,
+	className,
+}: ParagraphProps): JSX.Element {
+	return <Wrapper className={className}>{children}</Wrapper>;
 }

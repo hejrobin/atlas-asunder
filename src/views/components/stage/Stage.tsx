@@ -14,6 +14,7 @@ import { delay } from 'utils';
 import { SceneProps } from 'views/components/stage/Scene';
 
 interface StageProps {
+	initialSlug: string;
 	children?: ReactElement<SceneProps>[] | ReactElement<SceneProps>;
 }
 
@@ -72,13 +73,22 @@ const SceneTransition = styled.div<SceneTransitionProps>`
 		`};
 `;
 
-export default function Stage({ children }: StageProps): JSX.Element {
+export default function Stage({
+	children,
+	initialSlug,
+}: StageProps): JSX.Element {
 	const [busy, setBusy] = useState(false);
 	const [transitionState, setTransitionState] = useState('in');
-	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const filteredChildren = Children.toArray(children);
 	const numChildren: number = filteredChildren.length;
+
+	const initialIndex =
+		filteredChildren.findIndex(
+			(child) => (child as ReactElement).props?.slug === initialSlug
+		) ?? 0;
+
+	const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
 	const currentScene = (filteredChildren.length > 0
 		? filteredChildren.find((child, n) => n === currentIndex)

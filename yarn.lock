@@ -15398,6 +15398,16 @@ typeface-abel@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-abel/-/typeface-abel-0.0.72.tgz#dd7aa525b3f430ff8fc6acb31610d95ead1c7d46"
   integrity sha512-9DVbADqgmgEsMBomlXnNJwii6kQtEeF1XODoO70bKwfpfhr0W6raH8V2N5UIRh+IUuglHVStFC4kcoOAvgG5dA==
 
+typeface-im-fell-english-sc@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-im-fell-english-sc/-/typeface-im-fell-english-sc-0.0.72.tgz#fa50e3d12cf558dc65e00cd3da664310041d6a68"
+  integrity sha512-ilxfGaE/4yw7yRtnjBU3OcEkAe/GkvTDDicTpZkhTC2Gx/AN1DagJVf9TbqkANqlLRyly8K+ElWZidd/PIp70A==
+
+typeface-im-fell-english@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-im-fell-english/-/typeface-im-fell-english-0.0.72.tgz#4d1b3b0027bb453484c78a7dd72efeb11fdf3ac3"
+  integrity sha512-wYPxhjzH/qmyF9VkjjlG+ubWVYgtiJJlOMc209a/JpRkVJmPgkvBD6Y9bPMpQaA+1hoS6Uc7pA247G0Qyn8aRQ==
+
 typeface-inter@^3.12.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.12.0.tgz#3cd7cdae730daa73cc01e88fdbe27601dc7c4fd7"

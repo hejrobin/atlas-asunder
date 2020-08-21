@@ -1,24 +1,31 @@
 import React from 'react';
 
-import Text from 'views/components/Text';
-import Paragraph from 'views/components/Paragraph';
-
 import Button from 'views/components/form/Button';
 
-import useStageContext from 'utils/useStageContext';
+import Actions from 'views/components/text/Actions';
+import Wrapper from 'views/components/text/Wrapper';
+import Paragraph from 'views/components/text/Paragraph';
+import Setting from 'views/components/text/Setting';
+import Emotion from 'views/components/text/Emotion';
+import Speech from 'views/components/text/Speech';
+import Clue from 'views/components/text/Clue';
 
 export default function A1S1(): JSX.Element {
-	const { next } = useStageContext();
-
 	return (
-		<Text>
-			<Paragraph>This is the first paragraph...</Paragraph>
-			<Paragraph>And this is the second.</Paragraph>
-			<Paragraph>Should add highlighted words and actor lines.</Paragraph>
-			<Paragraph>Yeah...</Paragraph>
+		<Wrapper>
+			<Setting>This is a scene setting</Setting>
+			<Speech source="The Dude" tone="said %s calmly.">
+				I’m the Dude, so that’s what you call me. That or, uh His Dudeness, or
+				uh Duder, or El Duderino, if you’re not into the whole brevity thing.
+			</Speech>
+			<Speech>This aggression will not stand, man.</Speech>
 			<Paragraph>
-				<Button label="Continue" onClick={next} />
+				<Clue>That rug</Clue> really tied the room together.
 			</Paragraph>
-		</Text>
+			<Emotion>The player exhales</Emotion>
+			<Actions>
+				<Button label="Continue" />
+			</Actions>
+		</Wrapper>
 	);
 }
