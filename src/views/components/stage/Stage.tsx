@@ -126,7 +126,7 @@ export default function Stage({
 
 			if (transitionState === 'idle') {
 				setTransitionState('out');
-				await delay(1600);
+				await delay(1700);
 			}
 
 			if (nextIndex >= 0) {
