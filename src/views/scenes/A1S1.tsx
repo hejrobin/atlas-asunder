@@ -1,31 +1,38 @@
 import React from 'react';
 
-import Button from 'views/components/form/Button';
+import useStageContext from 'utils/useStageContext';
 
-import Actions from 'views/components/text/Actions';
 import Wrapper from 'views/components/text/Wrapper';
 import Paragraph from 'views/components/text/Paragraph';
 import Setting from 'views/components/text/Setting';
 import Emotion from 'views/components/text/Emotion';
-import Speech from 'views/components/text/Speech';
-import Clue from 'views/components/text/Clue';
+import Action from 'views/components/text/Action';
 
 export default function A1S1(): JSX.Element {
+	const { goTo } = useStageContext();
+
 	return (
 		<Wrapper>
-			<Setting>This is a scene setting</Setting>
-			<Speech source="The Dude" tone="said %s calmly.">
-				I’m the Dude, so that’s what you call me. That or, uh His Dudeness, or
-				uh Duder, or El Duderino, if you’re not into the whole brevity thing.
-			</Speech>
-			<Speech>This aggression will not stand, man.</Speech>
+			<Setting>%player.possessiveName% room, late night</Setting>
 			<Paragraph>
-				<Clue>That rug</Clue> really tied the room together.
+				%player.name% is awake, %partner.name% is fast asleep. The weather
+				outside is really, really bad. It hasn't rained like this in years.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+				fermentum sed tellus vitae bibendum. Sed molestie ex eu porta hendrerit.
+				Mauris id varius quam. Nunc ut sem sagittis, mollis metus non, vulputate
+				enim. Sed pulvinar metus eget ipsum sagittis, sit amet laoreet neque
+				ullamcorper. Cras posuere eros nec interdum tempor. Nunc ac leo mauris.
 			</Paragraph>
-			<Emotion>The player exhales</Emotion>
-			<Actions>
-				<Button label="Continue" />
-			</Actions>
+			<Emotion>The rain clatters on the window</Emotion>
+			<Paragraph>
+				You're not sure whether you should{' '}
+				<Action onClick={() => goTo && goTo('a1s2a')}>
+					wake %partner.name% up
+				</Action>{' '}
+				or{' '}
+				<Action onClick={() => goTo && goTo('a1s2b')}>go to the kitchen</Action>
+				.
+			</Paragraph>
 		</Wrapper>
 	);
 }

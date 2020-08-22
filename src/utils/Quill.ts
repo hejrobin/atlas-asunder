@@ -39,6 +39,9 @@ const Template: Definition = {
 
 	'pronoun.reflexive': (subjects: Subjects, target: string) =>
 		subjects[target].getPronouns().reflexive as string,
+
+	'pronoun.assertive': (subjects: Subjects, target: string) =>
+		subjects[target].getPronouns().assertive as string,
 };
 
 export default class Quill {

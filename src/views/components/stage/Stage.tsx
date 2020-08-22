@@ -1,10 +1,10 @@
 import React, {
-	ReactElement,
-	Fragment,
-	Children,
 	createContext,
 	useCallback,
 	useState,
+	ReactElement,
+	Fragment,
+	Children,
 } from 'react';
 
 import styled, { css, keyframes } from 'styled-components';
@@ -14,21 +14,20 @@ import { delay } from 'utils';
 import { SceneProps } from 'views/components/stage/Scene';
 
 interface StageProps {
-	initialSlug: string;
 	children?: ReactElement<SceneProps>[] | ReactElement<SceneProps>;
 }
 
 interface StageContextType {
-	goTo?: (slug?: string) => void;
-	prev?: () => void;
-	next?: () => void;
-	busy?: boolean;
+	goTo: (slug?: string) => void;
+	prev: () => void;
+	next: () => void;
+	busy: boolean;
 }
 
 const InitialStageContext = {
-	goTo: undefined,
-	prev: undefined,
-	back: undefined,
+	goTo: () => {},
+	prev: () => {},
+	next: () => {},
 	busy: false,
 };
 
@@ -56,7 +55,7 @@ interface SceneTransitionProps {
 	onAnimationEnd: () => void;
 }
 
-const SceneTransition = styled.div<SceneTransitionProps>`
+const SceneTransition = styled.main<SceneTransitionProps>`
 	height: 100vh;
 	width: 100vw;
 
@@ -73,24 +72,15 @@ const SceneTransition = styled.div<SceneTransitionProps>`
 		`};
 `;
 
-export default function Stage({
-	children,
-	initialSlug,
-}: StageProps): JSX.Element {
+export default function Stage({ children }: StageProps): JSX.Element {
 	const [busy, setBusy] = useState(false);
 	const [transitionState, setTransitionState] = useState('in');
+	const [currentIndex, setCurrentIndex] = useState(2);
 
 	const filteredChildren = Children.toArray(children);
 	const numChildren: number = filteredChildren.length;
 
-	const initialIndex =
-		filteredChildren.findIndex(
-			(child) => (child as ReactElement).props?.slug === initialSlug
-		) ?? 0;
-
-	const [currentIndex, setCurrentIndex] = useState(initialIndex);
-
-	const currentScene = (filteredChildren.length > 0
+	let currentScene = (filteredChildren.length > 0
 		? filteredChildren.find((child, n) => n === currentIndex)
 		: null) as ReactElement;
 
@@ -104,6 +94,10 @@ export default function Stage({
 		onNext: () => Promise.resolve(true),
 		nextSlug: undefined,
 	};
+
+	currentScene = React.cloneElement(currentScene, {
+		key: currentScene.props?.slug,
+	});
 
 	if (currentScene && currentScene?.hasOwnProperty('props')) {
 		childProps = currentScene.props;
@@ -119,14 +113,14 @@ export default function Stage({
 	} = childProps;
 
 	const goTo = useCallback(
-		async (slug) => {
+		async (slug?: string) => {
 			const nextIndex = filteredChildren.findIndex(
 				(child) => (child as ReactElement).props?.slug === slug
 			);
 
 			if (transitionState === 'idle') {
 				setTransitionState('out');
-				await delay(1700);
+				await delay(1500);
 			}
 
 			if (nextIndex >= 0) {
@@ -153,7 +147,7 @@ export default function Stage({
 
 		if (transitionState === 'idle') {
 			setTransitionState('out');
-			await delay(1000);
+			await delay(1500);
 		}
 
 		if (prevSlug) {
@@ -188,7 +182,7 @@ export default function Stage({
 
 		if (transitionState === 'idle') {
 			setTransitionState('out');
-			await delay(1000);
+			await delay(1500);
 		}
 
 		if (nextSlug) {
@@ -216,12 +210,12 @@ export default function Stage({
 	}, [transitionState]);
 
 	return (
-		<StageContext.Provider value={contextValue}>
-			<SceneTransition
-				transitionState={transitionState}
-				onAnimationEnd={handleTransitionChange}>
+		<SceneTransition
+			transitionState={transitionState}
+			onAnimationEnd={handleTransitionChange}>
+			<StageContext.Provider value={contextValue}>
 				{currentScene}
-			</SceneTransition>
-		</StageContext.Provider>
+			</StageContext.Provider>
+		</SceneTransition>
 	);
 }

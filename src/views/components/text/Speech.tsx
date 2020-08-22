@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 
 import styled from 'styled-components';
 
+import QuillText from 'views/components/QuillText';
 import Paragraph from 'views/components/text/Paragraph';
 
 const Wrapper = styled(Paragraph)`
@@ -30,20 +31,24 @@ const Wrapper = styled(Paragraph)`
 interface SpeechProps {
 	children?: ReactNode;
 	source?: string;
-	tone?: string;
 	className?: string;
 }
 
 export default function Speech({
 	source,
-	tone,
 	className,
 	children,
 }: SpeechProps): JSX.Element {
 	return (
-		<Wrapper>
-			<cite>{children}</cite>
-			{source && <span>{(tone ?? '').replace('%s', source)}</span>}
+		<Wrapper className={className}>
+			<cite>
+				<QuillText>{children}</QuillText>
+			</cite>
+			{source && (
+				<span>
+					<QuillText>{source}</QuillText>
+				</span>
+			)}
 		</Wrapper>
 	);
 }

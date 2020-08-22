@@ -129,6 +129,8 @@ export default function Main(): JSX.Element {
 		if (next instanceof Function) {
 			next();
 		}
+
+		setCanContinue(false);
 	};
 
 	return (

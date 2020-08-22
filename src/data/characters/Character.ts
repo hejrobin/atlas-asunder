@@ -15,6 +15,7 @@ interface PronounType {
 	objective: string;
 	possessive: string;
 	reflexive: string;
+	assertive: string;
 }
 
 export const theyThem: PronounType = {
@@ -22,6 +23,7 @@ export const theyThem: PronounType = {
 	objective: 'them',
 	possessive: 'theirs',
 	reflexive: 'themselves',
+	assertive: 'their',
 };
 
 export const sheHer: PronounType = {
@@ -29,6 +31,7 @@ export const sheHer: PronounType = {
 	objective: 'her',
 	possessive: 'hers',
 	reflexive: 'herself',
+	assertive: 'her',
 };
 
 export const heHim: PronounType = {
@@ -36,6 +39,7 @@ export const heHim: PronounType = {
 	objective: 'him',
 	possessive: 'his',
 	reflexive: 'himself',
+	assertive: 'his',
 };
 
 interface CharacterType {

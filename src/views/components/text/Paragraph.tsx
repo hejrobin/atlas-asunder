@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import QuillText from 'views/components/QuillText';
+
 const AppearAnimation = keyframes`
 	0% {
 		opacity: 0;
@@ -64,5 +66,9 @@ export default function Paragraph({
 	children,
 	className,
 }: ParagraphProps): JSX.Element {
-	return <Wrapper className={className}>{children}</Wrapper>;
+	return (
+		<Wrapper className={className}>
+			<QuillText>{children}</QuillText>
+		</Wrapper>
+	);
 }
