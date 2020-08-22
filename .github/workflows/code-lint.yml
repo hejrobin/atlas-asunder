@@ -1,4 +1,4 @@
-name: CI
+name: Code Lint
 
 on:
   push:
@@ -14,4 +14,4 @@ jobs:
     - name: Install dependencies
       run: yarn
     - name: Run linter
-      run: eslint --ext .ts,.tsx,.js,.jsx --fix --cache
+      run: yarn lint:source
