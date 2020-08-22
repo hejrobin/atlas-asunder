@@ -21,7 +21,6 @@ const GlobalStyles = createGlobalStyle`
 
 	body {
 		font-family: 'Inter', helvetica, arial, sans-serif;
-		overflow: hidden;
 	}
 `;
 

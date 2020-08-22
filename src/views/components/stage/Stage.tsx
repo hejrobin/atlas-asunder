@@ -58,6 +58,24 @@ interface SceneTransitionProps {
 const SceneTransition = styled.main<SceneTransitionProps>`
 	height: 100vh;
 	width: 100vw;
+	overflow: auto;
+
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: none;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: rgb(60, 60, 60);
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: rgb(180, 180, 180);
+	}
 
 	${({ transitionState }) =>
 		transitionState === 'in' &&
