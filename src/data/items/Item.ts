@@ -3,8 +3,8 @@ interface ItemType {
 	name: string;
 	description: string;
 	maxUses: number;
-	onUse: () => void;
-	onDiscard: () => void;
+	onUse?: () => void;
+	onDiscard?: () => void;
 }
 
 export default class Item {
@@ -13,7 +13,7 @@ export default class Item {
 	constructor(protected data: ItemType) {}
 
 	get guid(): string {
-		return thus.data.guid;
+		return this.data.guid;
 	}
 
 	get name(): string {
@@ -29,12 +29,16 @@ export default class Item {
 	}
 
 	use(): void {
-		this.data.onUse();
+		if (this.data.onUse instanceof Function) {
+			this.data.onUse();
+		}
 
 		if (this.numUses < this.maxUses) {
 			this.numUses = this.numUses + 1;
 		} else if (this.numUses + 1 >= this.maxUses) {
-			this.data.onDiscard();
+			if (this.data.onDiscard instanceof Function) {
+				this.data.onDiscard();
+			}
 		}
 	}
 }
