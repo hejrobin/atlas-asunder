@@ -63,14 +63,14 @@ export function Active({
 		return css`
 			background: linear-gradient(
 				${rotated ? '135deg' : 'to bottom'},
-				rgba(255, 62, 72, 0),
-				rgb(255, 62, 72)
+				rgba(44, 163, 135, 0),
+				rgb(44, 163, 135)
 			), url('${backdropUrl}');
 			background-repeat: no-repeat;
 			background-size: cover;
 			box-shadow: inset 0 0 0 0.2rem rgb(255, 62, 72),
-				inset 0 0 0 0.4rem rgb(10, 10, 10), rgba(255, 62, 72, 0.6) 0 0 1rem,
-				rgba(255, 62, 72, 0.2) 0 0 0.5rem 0.3rem;
+				inset 0 0 0 0.4rem rgb(10, 10, 10), rgba(44, 163, 135, 0.6) 0 0 1rem,
+				rgba(44, 163, 135, 0.2) 0 0 0.5rem 0.3rem;
 		`;
 	}
 
@@ -78,11 +78,11 @@ export function Active({
 		color: rgb(255, 62, 72);
 		background-image: linear-gradient(
 			${rotated ? '135deg' : 'to bottom'},
-			rgba(255, 62, 72, 0),
-			rgba(255, 62, 72, 0.6)
+			rgba(44, 163, 135, 0),
+			rgba(44, 163, 135, 0.6)
 		);
-		box-shadow: inset 0 0 0 0.2rem rgb(255, 62, 72),
-			inset 0 0 0 0.4rem rgb(10, 10, 10), rgba(255, 62, 72, 0.6) 0 0 1rem,
-			rgba(255, 62, 72, 0.2) 0 0 0.5rem 0.3rem;
+		box-shadow: inset 0 0 0 0.2rem rgb(44, 163, 135),
+			inset 0 0 0 0.4rem rgb(10, 10, 10), rgba(44, 163, 135, 0.6) 0 0 1rem,
+			rgba(44, 163, 135, 0.2) 0 0 0.5rem 0.3rem;
 	`;
 }

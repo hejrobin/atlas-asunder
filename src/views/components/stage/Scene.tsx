@@ -18,8 +18,10 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 	padding: 4rem;
 	max-width: 72rem;
+	width: 100%;
+	display: grid;
 `;
 
-export default function Scene({ slug, component }: SceneProps): JSX.Element {
+export default function Scene({ component }: SceneProps): JSX.Element {
 	return <Wrapper>{component}</Wrapper>;
 }

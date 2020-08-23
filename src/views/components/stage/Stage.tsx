@@ -59,6 +59,8 @@ const SceneTransition = styled.main<SceneTransitionProps>`
 	height: 100vh;
 	width: 100vw;
 	overflow: auto;
+	display: grid;
+	align-items: center;
 
 	::-webkit-scrollbar {
 		width: 6px;
