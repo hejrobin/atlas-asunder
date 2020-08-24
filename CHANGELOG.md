@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/hejrobin/atlas-asunder/compare/v0.2.1...v0.2.2) (2020-08-24)
+
+
+### Features
+
+* add github workflows ([95b747d](https://github.com/hejrobin/atlas-asunder/commit/95b747dd55b824f2f1053ed8c2d0b87d55a301ee))
+* character class improvements ([#3](https://github.com/hejrobin/atlas-asunder/issues/3)) ([f7e2e2d](https://github.com/hejrobin/atlas-asunder/commit/f7e2e2d4a1e7ea73467d4fbe20658ea78f9a4283))
+* **engine:** added a few containers and items ([e7f4265](https://github.com/hejrobin/atlas-asunder/commit/e7f426518a25116ded3604511dbc15bad9f65103))
+* **engine:** inventory and item logic ([586ce1f](https://github.com/hejrobin/atlas-asunder/commit/586ce1f54c2a1a5078f9d2e231a4191de3509419))
+* **engine:** quill now automatically parses text components ([0fc2a2e](https://github.com/hejrobin/atlas-asunder/commit/0fc2a2ea890b1bf4cf71a16e4e51e6d6d7df8185))
+* **ui:** added clue popup component ([8b3862c](https://github.com/hejrobin/atlas-asunder/commit/8b3862c8dd767cf5827f96b2d9f1291190e79347))
+
+
+### Bug Fixes
+
+* broken ci dependency ([ca82af2](https://github.com/hejrobin/atlas-asunder/commit/ca82af2ea5ec9c4de7ee174dd512cdbd47f99220))
+* **ci:** github actions ([36e0d73](https://github.com/hejrobin/atlas-asunder/commit/36e0d731adb31eae7f1e838668ce783689428e21))
+* **ci:** missing dependency ([a1418fa](https://github.com/hejrobin/atlas-asunder/commit/a1418fa78e1a2caad69a9b0dcaefabaa5abbbac4))
+* **ui:** scollable container issues ([70fbe37](https://github.com/hejrobin/atlas-asunder/commit/70fbe37dd20bfb979e58368b90d9f417728429f5))
+* prevent extraneous click events ([0e63905](https://github.com/hejrobin/atlas-asunder/commit/0e639053f3da599de81b0ffdfbb472f2b4787280))
+
 ### [0.2.1](https://github.com/hejrobin/atlas-asunder/compare/v0.2.0...v0.2.1) (2020-08-21)
 
 
