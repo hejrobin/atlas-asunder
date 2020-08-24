@@ -2,14 +2,23 @@ import React from 'react';
 
 import useStageContext from 'utils/useStageContext';
 
+import QuillText from 'views/components/QuillText';
+
 import Wrapper from 'views/components/text/Wrapper';
 import Paragraph from 'views/components/text/Paragraph';
 import Setting from 'views/components/text/Setting';
 import Emotion from 'views/components/text/Emotion';
 import Action from 'views/components/text/Action';
+import Clue from 'views/components/text/Clue';
 
 export default function A1S1(): JSX.Element {
 	const { goTo } = useStageContext();
+
+	const clue = (
+		<QuillText>
+			%partner.name% hid %partner.pronoun.objective% candy in the bookshelf.
+		</QuillText>
+	);
 
 	return (
 		<Wrapper>
@@ -17,11 +26,12 @@ export default function A1S1(): JSX.Element {
 			<Paragraph>
 				%player.name% is awake, %partner.name% is fast asleep. The weather
 				outside is really, really bad. It hasn't rained like this in years.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-				fermentum sed tellus vitae bibendum. Sed molestie ex eu porta hendrerit.
-				Mauris id varius quam. Nunc ut sem sagittis, mollis metus non, vulputate
-				enim. Sed pulvinar metus eget ipsum sagittis, sit amet laoreet neque
-				ullamcorper. Cras posuere eros nec interdum tempor. Nunc ac leo mauris.
+				Lorem <Clue component={clue}>ipsum dolor sit amet</Clue>, consectetur
+				adipiscing elit. Nullam fermentum sed tellus vitae bibendum. Sed
+				molestie ex eu porta hendrerit. Mauris id varius quam. Nunc ut sem
+				sagittis, mollis metus non, vulputate enim. Sed pulvinar metus eget
+				ipsum sagittis, sit amet laoreet neque ullamcorper. Cras posuere eros
+				nec interdum tempor. Nunc ac leo mauris.
 			</Paragraph>
 			<Emotion>The rain clatters on the window</Emotion>
 			<Paragraph>
