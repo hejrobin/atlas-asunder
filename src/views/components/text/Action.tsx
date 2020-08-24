@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { useState, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import QuillText from 'views/components/QuillText';
@@ -37,8 +37,20 @@ export default function Action({
 	onClick,
 	className,
 }: ActionProps): JSX.Element {
+	const [isDisabled, setDisabled] = useState(false);
+
+	const handleClick = () => {
+		if (onClick instanceof Function) {
+			if (!isDisabled) {
+				onClick();
+			}
+		}
+
+		setDisabled(true);
+	};
+
 	return (
-		<Wrapper onClick={onClick} className={className}>
+		<Wrapper onClick={handleClick} className={className}>
 			<QuillText>{children}</QuillText>
 		</Wrapper>
 	);

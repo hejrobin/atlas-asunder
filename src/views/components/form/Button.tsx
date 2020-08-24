@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -21,6 +21,10 @@ const Wrapper = styled.div`
 			rgba(100, 100, 100, 0.2) 0 0 0 0.3rem,
 			inset rgba(100, 100, 100, 0.25) 0 0 2rem;
 	}
+
+	&[data-disabled='true'] {
+		pointer-events: none;
+	}
 `;
 
 export interface ButtonProps {
@@ -29,11 +33,21 @@ export interface ButtonProps {
 }
 
 export default function Button({ label, onClick }: ButtonProps): JSX.Element {
+	const [isDisabled, setDisabled] = useState(false);
+
 	const handleClick = () => {
 		if (onClick instanceof Function) {
-			onClick();
+			if (!isDisabled) {
+				onClick();
+			}
 		}
+
+		setDisabled(true);
 	};
 
-	return <Wrapper onClick={handleClick}>{label}</Wrapper>;
+	return (
+		<Wrapper onClick={handleClick} data-disabled={isDisabled}>
+			{label}
+		</Wrapper>
+	);
 }
