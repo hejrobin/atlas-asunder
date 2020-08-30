@@ -2,6 +2,8 @@ import React from 'react';
 
 import useStageContext from 'utils/useStageContext';
 
+import Sam from 'data/characters/Sam';
+
 import QuillText from 'views/components/QuillText';
 
 import Wrapper from 'views/components/text/Wrapper';
@@ -14,11 +16,20 @@ import Clue from 'views/components/text/Clue';
 export default function A1S1(): JSX.Element {
 	const { goTo } = useStageContext();
 
-	const clue = (
-		<QuillText>
-			%partner.name% hid %partner.pronoun.objective% candy in the bookshelf.
-		</QuillText>
-	);
+	// @NOTE For development purposes, just assume "Sam" is the player
+
+	const clue =
+		Sam.perception === 1 ? (
+			<QuillText>
+				%partner.name% usually hides %partner.pronoun.objective% candy in the
+				bookshelf, behind %partner.pronoun.objective% favourite book.
+			</QuillText>
+		) : (
+			<QuillText>
+				%partner.name% must have hidden %partner.pronoun.objective% candy
+				somewhere in the room...
+			</QuillText>
+		);
 
 	return (
 		<Wrapper>
