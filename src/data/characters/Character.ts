@@ -42,12 +42,64 @@ export const heHim: PronounType = {
 	assertive: 'his',
 };
 
+interface TraitType {
+	perception: number;
+	ingenuity: number;
+	endurance: number;
+}
+
+const Perceptive: TraitType = {
+	perception: 1,
+	ingenuity: 0,
+	endurance: -1,
+};
+
+const Inventive: TraitType = {
+	perception: 0,
+	ingenuity: 1,
+	endurance: -1,
+};
+
+const Athletic: TraitType = {
+	perception: -1,
+	ingenuity: 0,
+	endurance: 1,
+};
+
+const Observant: TraitType = {
+	perception: 1,
+	ingenuity: -1,
+	endurance: 0,
+};
+
+const Stubborn: TraitType = {
+	perception: -1,
+	ingenuity: 1,
+	endurance: 0,
+};
+
+export const Trait = {
+	Perceptive,
+	Inventive,
+	Athletic,
+	Observant,
+	Stubborn,
+};
+
+type CharacterTraitType =
+	| typeof Perceptive
+	| typeof Inventive
+	| typeof Athletic
+	| typeof Observant
+	| typeof Stubborn;
+
 interface CharacterType {
 	name: string;
 	age?: number;
 	gender: Gender;
 	pronoun: Pronoun;
 	biography?: string;
+	trait: CharacterTraitType;
 }
 
 export default class Character {
@@ -78,5 +130,17 @@ export default class Character {
 			case Pronoun.HeHim:
 				return heHim;
 		}
+	}
+
+	get perception(): number {
+		return this.data.trait.perception;
+	}
+
+	get ingenuity(): number {
+		return this.data.trait.ingenuity;
+	}
+
+	get endurance(): number {
+		return this.data.trait.endurance;
 	}
 }
