@@ -27,7 +27,13 @@ export default function A1S1(): JSX.Element {
 		) : (
 			<QuillText>
 				%partner.name% must have hidden %partner.pronoun.objective% candy
-				somewhere in the room...
+				somewhere in the room... %player.name% is awake, %partner.name% is fast
+				asleep. The weather outside is really, really bad. It hasn't rained like
+				this in years. Lorem, consectetur adipiscing elit. Nullam fermentum sed
+				tellus vitae bibendum. Sed molestie ex eu porta hendrerit. Mauris id
+				varius quam. Nunc ut sem sagittis, mollis metus non, vulputate enim. Sed
+				pulvinar metus eget ipsum sagittis, sit amet laoreet neque ullamcorper.
+				Cras posuere eros nec interdum tempor. Nunc ac leo mauris.
 			</QuillText>
 		);
 
